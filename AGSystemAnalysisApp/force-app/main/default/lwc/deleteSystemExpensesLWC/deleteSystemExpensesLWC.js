@@ -28,8 +28,8 @@ export default class DeleteSystemExpensesLWC extends LightningElement {
                 })
             );
             this.isLoading = false;
-            getRecordNotifyChange([{recordId: this.recordId}]);
             updateRecord({ fields: { Id: this.recordId } });
+            getRecordNotifyChange([{recordId: this.recordId}]);
         });
 
         this.isDeleted = true;
