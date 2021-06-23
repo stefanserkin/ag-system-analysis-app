@@ -24,10 +24,6 @@ public with sharing class SystemPaymentTriggerHandler {
                                                                                         WHERE Id IN :setSeIds]);
 
         for (System_Payment__c sp : spsInTrigger) {
-            // Skip records without a System Expense
-            if (sp.System_Expense__c == null) {
-                continue;
-            }
             // Set System Payment values to related System Expense values in map
             sp.System__c      = mapSystemExpenses.get(sp.System_Expense__c).System__c;
             sp.Fiscal_Year__c = mapSystemExpenses.get(sp.System_Expense__c).Fiscal_Year__c;

@@ -10,7 +10,7 @@ trigger SystemExpenseTrigger on System_Expense__c (before insert, after insert,
     if (Trigger.isBefore && (Trigger.isInsert || Trigger.isUpdate)) {
         SystemExpenseTriggerHandler.calculateAmount(Trigger.new);
     } else if (Trigger.isAfter) {
-        if (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete) {
+        if (Trigger.isInsert) {
             SystemExpenseTriggerHandler.recalcFiscalYear(Trigger.new, false);
             SystemExpenseTriggerHandler.createPayments(Trigger.new);
         } else if (Trigger.isUpdate || Trigger.isUndelete) {

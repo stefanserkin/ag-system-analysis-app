@@ -8,11 +8,7 @@ public with sharing class SystemController {
                                                               WHERE System__c = :recordId
                                                               LIMIT 10000];
         if (!lstSystemExpensesToDelete.isEmpty()) {
-            try {
-                delete lstSystemExpensesToDelete;
-            } catch (Exception e) {
-                throw new AuraHandledException(e.getMessage());
-            }
+            delete lstSystemExpensesToDelete;
         }
 
     }

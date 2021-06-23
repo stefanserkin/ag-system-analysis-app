@@ -1,8 +1,8 @@
 @isTest
-public class SystemPaymentTriggerHandler_Test {
+public class LicenseOrderTriggerHandler_Test {
     
     @isTest
-    static void testSystemPayments() {
+    static void testLicenseOrder() {
         // Baseline dates for fiscal year 0
         Date fyStartDate = Date.newInstance(2024, 7, 1);
         Date fyEndDate   = Date.newInstance(2025, 6, 30);
@@ -21,6 +21,11 @@ public class SystemPaymentTriggerHandler_Test {
         se.Percent_Increase__c = 0;
         se.System__c           = sys.Id;
         insert se;
+        
+        License_Order__c lo = new License_Order__c();
+        lo.System_Expense__c = se.Id;
+        lo.Quantity__c       = 1;
+        insert lo;
     }
-    
+
 }
