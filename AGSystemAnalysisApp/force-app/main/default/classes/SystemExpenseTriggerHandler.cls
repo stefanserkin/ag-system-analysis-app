@@ -117,7 +117,7 @@ public with sharing class SystemExpenseTriggerHandler {
             // Set value to identify if this is the first year of payments
             Boolean isFirstYear        = dateFirstPayment >= fyStartDate && dateFirstPayment <= fyEndDate;
 
-            if (createPayments == false && (strPaymentFrequency == null || dateFirstPayment == null)) {
+            if (createPayments == false || strPaymentFrequency == null || dateFirstPayment == null) {
                 continue;
             }
 
